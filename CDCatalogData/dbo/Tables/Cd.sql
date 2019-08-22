@@ -2,7 +2,6 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Title] NVARCHAR(50) NOT NULL, 
-    [ArtistId] INT NOT NULL, 
-    [DateReleased] DATETIME2 NULL, 
-    CONSTRAINT [FK_Cd_ToArtist] FOREIGN KEY (ArtistId) REFERENCES Artist(Id)
+    [Artist] NVARCHAR(50) NOT NULL, 
+    [DateReleased] DATETIME2 NOT NULL, 
 )
