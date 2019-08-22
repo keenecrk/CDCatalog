@@ -64,6 +64,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Cd.sql" />
     <Build Include="dbo\Tables\Song.sql" />
+    <Build Include="dbo\Stored Procedures\spSong_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\PublishLocations\CDCatalogData.publish.xml" />

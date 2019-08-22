@@ -9,6 +9,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CDCatalogData", "CDCatalogD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager", "DataManager\DataManager.csproj", "{85601EE8-F622-4900-B051-0749DA09C419}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "SharedModels\SharedModels.csproj", "{630B5E2B-4B47-4FC5-8442-59A888F371E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{85601EE8-F622-4900-B051-0749DA09C419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85601EE8-F622-4900-B051-0749DA09C419}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85601EE8-F622-4900-B051-0749DA09C419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630B5E2B-4B47-4FC5-8442-59A888F371E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630B5E2B-4B47-4FC5-8442-59A888F371E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630B5E2B-4B47-4FC5-8442-59A888F371E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630B5E2B-4B47-4FC5-8442-59A888F371E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

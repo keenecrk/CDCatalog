@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85601EE8-F622-4900-B051-0749DA09C419}</ProjectGuid>
+    <ProjectGuid>{630B5E2B-4B47-4FC5-8442-59A888F371E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataManager</RootNamespace>
-    <AssemblyName>DataManager</AssemblyName>
+    <RootNamespace>SharedModels</RootNamespace>
+    <AssemblyName>SharedModels</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,11 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,20 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\CdData.cs" />
-    <Compile Include="DataAccess\SongData.cs" />
-    <Compile Include="DataAccess\SQLDataAccess.cs" />
-    <Compile Include="Models\SongDBModel.cs" />
+    <Compile Include="Models\CdModel.cs" />
+    <Compile Include="Models\SongModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SharedModels\SharedModels.csproj">
-      <Project>{630B5E2B-4B47-4FC5-8442-59A888F371E5}</Project>
-      <Name>SharedModels</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
