@@ -7,4 +7,6 @@ BEGIN
 
 	INSERT INTO dbo.Song(Title, CdId)
 	VALUES(@Title, @CdId);
+
+	SELECT CAST(SCOPE_IDENTITY() AS int);
 END

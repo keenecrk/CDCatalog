@@ -48,6 +48,7 @@
     <Compile Include="DataAccess\CdData.cs" />
     <Compile Include="DataAccess\SongData.cs" />
     <Compile Include="DataAccess\SQLDataAccess.cs" />
+    <Compile Include="Models\CdDBModel.cs" />
     <Compile Include="Models\SongDBModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

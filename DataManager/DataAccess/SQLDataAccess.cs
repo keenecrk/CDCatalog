@@ -14,16 +14,21 @@ namespace DataManager.DataAccess
     {
         public static List<T> LoadData<T, U>(string storedProcedure, U parameters)
         {
-            return null;
+            string connectionString = GetConnectionString();
+
+            using(IDbConnection connection = new SqlConnection(connectionString))
+            {
+                return connection.Query<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure).ToList();
+            }
         }
 
-        public static void SaveData<T>(string storedProcedure, T parameters)
+        public static int SaveData<T>(string storedProcedure, T parameters)
         {
             string connectionString = GetConnectionString();
             
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+                return connection.Query<int>(storedProcedure, parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
             }
         }
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebLayer.Models;
 
 namespace WebLayer.Controllers
 {
@@ -13,13 +14,23 @@ namespace WebLayer.Controllers
         // GET: Cd
         public ActionResult Index()
         {
-            return View();
+            List<CdModel> cds = CdData.GetCds();
+            return View(cds);
         }
 
         // GET: Cd/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            CdModel cd = CdData.GetCdById(id);
+            List<SongModel> songsOnCd = SongData.GetSongsByCdId(cd.Id);
+            CdDisplayModel cdDisplay = new CdDisplayModel
+            {
+                Title = cd.Title,
+                Artist = cd.Artist,
+                DateReleased = cd.DateReleased,
+                Songs = songsOnCd
+            };
+            return View(cdDisplay);
         }
 
         // GET: Cd/Create
@@ -44,48 +55,48 @@ namespace WebLayer.Controllers
             }
         }
 
-        // GET: Cd/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //// GET: Cd/Edit/5
+        //public ActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: Cd/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+        //// POST: Cd/Edit/5
+        //[HttpPost]
+        //public ActionResult Edit(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
-        // GET: Cd/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //// GET: Cd/Delete/5
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: Cd/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+        //// POST: Cd/Delete/5
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

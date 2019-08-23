@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DataManager.Models;
 using SharedModels.Models;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,24 @@ namespace DataManager.DataAccess
     {
         public static int SaveCd(CdModel cd)
         {
-            int savedId;
-            string sql = @"INSERT INTO dbo.Cd (Title, Artist, DateReleased) " +
-                "VALUES (@Title, @Artist, @DateReleased); " +
-                "SELECT CAST(SCOPE_IDENTITY() AS int)";
-
-            using (IDbConnection connection = new SqlConnection(SQLDataAccess.GetConnectionString()))
+            CdDBModel cdDB = new CdDBModel
             {
-                savedId = connection.Query<int>(sql,
-                    new { cd.Title, cd.Artist, cd.DateReleased }).Single();
-            }
+                Title = cd.Title,
+                Artist = cd.Artist,
+                DateReleased = cd.DateReleased
+            };
 
-            return savedId;
+            return SQLDataAccess.SaveData("dbo.spCd_Insert", cdDB);
+        }
+
+        public static List<CdModel> GetCds()
+        {
+            return SQLDataAccess.LoadData<CdModel, dynamic>("dbo.spCd_GetAll", new { });
+        }
+
+        public static CdModel GetCdById(int id)
+        {
+            return SQLDataAccess.LoadData<CdModel, dynamic>("dbo.spCd_GetById", new { Id = id }).FirstOrDefault();
         }
     }
 }
